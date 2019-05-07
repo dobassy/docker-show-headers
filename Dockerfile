@@ -7,7 +7,7 @@ RUN \
 
 ENV RACK_ENV production
 EXPOSE 8080
-# ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
 CMD [ "bundle", "exec", "rackup", \
       "-o", "0.0.0.0", \
       "-p", "8080" ]
