@@ -1,0 +1,27 @@
+<h1>Show request information</h1>
+
+<table>
+  <tr>
+    <th class="key">key</th>
+    <th class="val">value</th>
+  </tr>
+
+  <tr>
+    <td>client ip address</td>
+    <td><%= @request.ip %></td>
+  </tr>
+
+  <tr>
+    <td colspan="2"><strong>request headers</strong></td>
+  </tr>
+
+<% @http_headers.each do |k,v| %>
+  <% if k == "HTTP_COOKIE" %>
+    <% v = cookie_bueautify(v) %>
+  <% end %>
+  <tr>
+    <td class="key"><%= k %></td>
+    <td class="val"><%= v %></td>
+  </tr>
+<% end %>
+</table>
